@@ -4,7 +4,7 @@ from settings import settings
 import os
 
 #TODO: refactor default path
-default_db_path = 'C:\\Electra\\El-Ac\\Globaыl.fdb'
+default_db_path = 'C:\\Electra\\El-Ac\\Global.fdb'
 default_config_ini_path = 'C:\\Electra\\El-Ac\\Config.ini'
 
 class DbManager():

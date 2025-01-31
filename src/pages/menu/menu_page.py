@@ -1,14 +1,6 @@
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow
+     QVBoxLayout,QPushButton, QWidget, QStackedWidget, QMainWindow
 )
-from fdb import connect, Connection
-from typing import Optional
-from settings import settings
-import os
-from PySide6.QtWidgets import (
-    QApplication, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget, QMainWindow
-)
-from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt
 
 class MenuPage(QWidget):

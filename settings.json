@@ -1,5 +1,5 @@
 {
-    "is_default_path": true,
-    "config_ini_custom_path": null,
+    "is_default_path": false,
+    "config_ini_custom_path": "D:/El-Ac/Config.ini",
     "background": "white"
 }

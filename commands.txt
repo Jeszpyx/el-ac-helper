@@ -1,0 +1,5 @@
+# Dev mode
+pymon .\src\main.py
+
+# Собрать exe
+pyinstaller --onefile --noconsole --add-data "data;data" src/main.py

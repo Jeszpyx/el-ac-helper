@@ -4,19 +4,14 @@ def resetlocale(category=locale.LC_ALL):
     locale.setlocale(category, locale.getdefaultlocale()[0])
 locale.resetlocale = resetlocale
 
-# import database
 from pages.database_error.database_error_page import DatabaseErrorPage
 from pages.menu.menu_page import MenuPage
 from PySide6.QtWidgets import (
     QApplication, QMainWindow
 )
-
-import os
 from PySide6.QtWidgets import (
-    QApplication, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget, QMainWindow
+    QApplication, QStackedWidget, QMainWindow
 )
-from PySide6.QtGui import QPixmap
-from PySide6.QtCore import Qt
 from db_manager import db_manager
 
 
@@ -39,11 +34,24 @@ class MainWindow(QMainWindow):
         self.stack.addWidget(self.main_page)
         self.stack.addWidget(self.error_page)
 
+        self.error_page.refresh_page_signal.connect(self.switch_to_menu_page)
 
+        self.switch_to_menu_page()
+        
+    def switch_to_menu_page(self):
         if db_manager.db_connection is None: 
             self.stack.setCurrentWidget(self.error_page) 
         else:
             self.stack.setCurrentWidget(self.main_page)
 
-        
-   
+
+if __name__ == '__main__':
+    # Создаем экземпляр QApplication
+    app = QApplication([])
+    # Создаем экземпляр главного окна
+    window = MainWindow()
+    # Показываем главное окно
+    window.show()
+
+    # Запускаем основной цикл событий
+    app.exec()
